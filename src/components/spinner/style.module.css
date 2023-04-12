@@ -1,0 +1,22 @@
+.spinner-border {
+  width: 100px;
+  height: 100px;
+  margin: 30rem auto;
+  display: block;
+  /* vertical-align: text-bottom; */
+  border: 0.25em solid #28b487;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+}
+
+
+@keyframes spinner-border {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
