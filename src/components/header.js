@@ -17,15 +17,13 @@ function Header() {
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
-        <div>
-          <Image
-            width={650}
-            height={150}
-            className='header__logo'
-            src='/imgs/logo-white.png'
-            alt='Natours logo'
-          />
-        </div>
+        <Image
+          width={650}
+          height={150}
+          className='header__logo'
+          src='/imgs/logo-white.png'
+          alt='Natours logo'
+        />
         {/* {se === 'no' ? null : (
           <form className='nav__search'>
             <button className='nav__search-btn'>
