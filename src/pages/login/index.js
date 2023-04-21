@@ -29,8 +29,6 @@ function Login() {
       password,
     });
 
-    console.log(res);
-
     // if (res.ok) router.push(res.url);
   }
 

@@ -14,7 +14,6 @@ export async function getStaticProps() {
 }
 
 function HomePage({ tours }) {
-  console.log(tours);
   return (
     <>
       <Header$ />

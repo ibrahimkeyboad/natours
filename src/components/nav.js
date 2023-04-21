@@ -1,10 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useLogUserQuery } from '../context/apiSlice';
 function Nav() {
-  const { data } = useLogUserQuery();
-  const user = data?.user;
-  console.log(user);
   return (
     <nav className='user-view__menu'>
       {user?.role === 'user' && (

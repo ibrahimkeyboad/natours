@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { IoTrash } from 'react-icons/io5';
 
 function TourList({ tour }) {
-  // console.log(tour?.slug);
   return (
     <div className='card'>
       <div className='card__header'>

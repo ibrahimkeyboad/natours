@@ -32,7 +32,6 @@ export async function getStaticProps({ params }) {
 }
 
 function TourPage({ tour, reviews }) {
-  console.log(tour);
   return (
     <>
       <Header$ title={tour.name} description={tour.description} />

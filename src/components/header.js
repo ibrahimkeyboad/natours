@@ -5,7 +5,6 @@ import { useSession } from 'next-auth/react';
 
 function Header() {
   const { data } = useSession();
-  console.log(data);
 
   // se = 'no';
   function logoutHandler() {}
@@ -51,10 +50,10 @@ function Header() {
         </nav>
       ) : (
         <nav className='nav nav--user'>
-          <Link className='nav__el' href='/login'>
+          <Link className='nav__el' href=''>
             Log in
           </Link>
-          <Link className='nav__el nav__el--cta' href='/signup'>
+          <Link className='nav__el nav__el--cta' href=''>
             Sign up
           </Link>
         </nav>

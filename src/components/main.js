@@ -2,7 +2,6 @@ import React from 'react';
 import TourList from './tour-list';
 
 function Main({ tours }) {
-  // console.log(tours);
   return (
     <main className='main'>
       <div className='card-container'>
