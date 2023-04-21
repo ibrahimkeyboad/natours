@@ -1,12 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io';
-// import { useLogUserQuery } from '../context/apiSlice';
 import { useSession } from 'next-auth/react';
 
 function Header() {
-  // const { data } = useLogUserQuery();
-
   const { data } = useSession();
   console.log(data);
 

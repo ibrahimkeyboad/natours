@@ -8,8 +8,8 @@ function Footer() {
         <Image
           height={30}
           width={150}
-          src='/img/logo-green.png'
-          alt='Nahrefurs logo'
+          src='https://res.cloudinary.com/ibracloud/image/upload/v1666853628/natours/img/logo-green_ona17j.png'
+          alt='natour logo'
         />
       </Link>
       <ul className='footer__nav'>
