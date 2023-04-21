@@ -2,14 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io';
 // import { useLogUserQuery } from '../context/apiSlice';
-// import { useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 function Header() {
   // const { data } = useLogUserQuery();
-  const data = {};
-  const user = data?.user;
 
-  // const { data } = useSession();
+  const { data } = useSession();
   console.log(data);
 
   // se = 'no';
@@ -18,8 +16,8 @@ function Header() {
     <header className='header'>
       <nav className='nav nav--tours'>
         <Image
-          width={650}
-          height={150}
+          width={400}
+          height={400}
           className='header__logo'
           src='/imgs/logo-white.png'
           alt='Natours logo'
