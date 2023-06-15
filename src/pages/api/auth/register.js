@@ -1,5 +1,5 @@
+import User from '@/models/userModel';
 import { hash } from 'bcryptjs';
-import User from '@/models/user';
 
 import validator from 'validator';
 
