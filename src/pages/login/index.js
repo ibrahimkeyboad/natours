@@ -38,7 +38,7 @@ function Login() {
       setIsLoading(false);
       loginModal.onClose();
       toast.success('logged in');
-      // router.push(redirect);
+      router.push(redirect);
     } else {
       toast.error(res.error);
     }

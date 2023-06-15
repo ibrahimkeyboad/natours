@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 function Header() {
@@ -15,16 +15,18 @@ function Header() {
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
-        <Image
-          width={400}
-          height={400}
-          src='/imgs/logo-white.png'
-          alt='Natours logo'
-          className={`header__logo ${
-            loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
-          }`}
-          onLoadingComplete={() => setLoading(false)}
-        />
+        <Link href='/'>
+          <Image
+            width={400}
+            height={400}
+            src='/imgs/logo-white.png'
+            alt='Natours logo'
+            className={`header__logo ${
+              loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+            }`}
+            onLoadingComplete={() => setLoading(false)}
+          />
+        </Link>
         {/* {se === 'no' ? null : (
           <form className='nav__search'>
             <button className='nav__search-btn'>
@@ -64,9 +66,9 @@ function Header() {
           <Link className='nav__el' href='/login'>
             Log in
           </Link>
-          <Link className='nav__el nav__el--cta' href='/signup'>
+          <button className='nav__el nav__el--cta' onClick={() => signOut()}>
             Sign up
-          </Link>
+          </button>
         </nav>
       )}
     </header>
