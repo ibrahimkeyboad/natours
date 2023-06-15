@@ -1,17 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 function Header() {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   console.log(session);
 
   // se = 'no';
-  function logoutHandler() {}
+  function logoutHandler() {
+    signOut();
+    router.push('/');
+  }
   return (
     <header className='header'>
       <nav className='nav nav--tours'>
@@ -66,9 +71,9 @@ function Header() {
           <Link className='nav__el' href='/login'>
             Log in
           </Link>
-          <button className='nav__el nav__el--cta' onClick={() => signOut()}>
+          <Link className='nav__el nav__el--cta' href='/signup'>
             Sign up
-          </button>
+          </Link>
         </nav>
       )}
     </header>
