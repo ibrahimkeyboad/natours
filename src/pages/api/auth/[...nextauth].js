@@ -46,12 +46,12 @@ export const authOptions = {
       },
     }),
   ],
-  secret: process.env.JWT_SECRET,
   session: {
     maxAge: 24 * 60 * 60,
     updateAge: 24 * 60 * 60,
     strategy: 'jwt',
   },
+  secret: process.env.JWT_SECRET,
 };
 
 export default NextAuth(authOptions);
