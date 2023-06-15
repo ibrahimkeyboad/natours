@@ -1,3 +1,4 @@
+import connectDB from '@/db';
 import User from '@/models/userModel';
 import { hash } from 'bcryptjs';
 
@@ -6,11 +7,11 @@ import validator from 'validator';
 export default async function handler(req, res) {
   const { body, method } = req;
 
-  if (!method === 'POST') {
+  if (method !== 'POST') {
     return res.status(401).json({ error: 'Only Post request is allowed!' });
   }
 
-  connetDB();
+  connectDB();
   try {
     const { name, email, password } = body;
 
