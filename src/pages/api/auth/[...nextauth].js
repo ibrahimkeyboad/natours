@@ -4,7 +4,6 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import connectDB from '@/db';
 
 export const authOptions = {
-  secret: process.env.SECRET,
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -47,6 +46,12 @@ export const authOptions = {
       },
     }),
   ],
+  secret: process.env.JWT_SECRET,
+  session: {
+    maxAge: 24 * 60 * 60,
+    updateAge: 24 * 60 * 60,
+    strategy: 'jwt',
+  },
 };
 
 export default NextAuth(authOptions);
