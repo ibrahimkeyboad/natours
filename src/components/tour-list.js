@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoTrash } from 'react-icons/io5';
 
 function TourList({ tour }) {
+  const [loading, setLoading] = useState(true);
   return (
     <div className='card'>
       <div className='card__header'>
@@ -14,7 +16,10 @@ function TourList({ tour }) {
             alt={tour?.name}
             height={500}
             width={500}
-            className='card__picture-img'
+            className={`card__picture-img ${
+              loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+            }`}
+            onLoadingComplete={() => setLoading(false)}
           />
         </div>
         <h3 className='heading-tertirary'>

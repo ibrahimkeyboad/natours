@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-// import { getStripe } from '../context/apiSlice';
-// import PreviewPage from '../pages/checkout';
+import React, { useState } from 'react';
 
 function TourDetails({ tour, reviews }) {
+  const [loading, setLoading] = useState(true);
+
   const date = new Date(tour.startDates[0]).toLocaleString('en-us', {
     month: 'long',
     year: 'numeric',
@@ -27,7 +27,16 @@ function TourDetails({ tour, reviews }) {
         <div className='header__hero'>
           <div className='header__hero-overlay'></div>
           <figure className='header__hero-img'>
-            <Image fill priority src={tour.imageCover} alt='tour' />
+            <Image
+              fill
+              priority
+              src={tour.imageCover}
+              alt='tour'
+              className={` ${
+                loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+              }`}
+              onLoadingComplete={() => setLoading(false)}
+            />
           </figure>
         </div>
 
@@ -107,6 +116,10 @@ function TourDetails({ tour, reviews }) {
                       height={35}
                       src={guide.photo}
                       alt='Lead guide'
+                      className={` ${
+                        loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+                      }`}
+                      onLoadingComplete={() => setLoading(false)}
                     />
                   </figure>
                   <span className='overview-box__label'>
@@ -138,7 +151,10 @@ function TourDetails({ tour, reviews }) {
               width={1000}
               src={img}
               alt={''}
-              className={`picture-box__img picture-box__img--${i + 1}`}
+              className={` picture-box__img picture-box__img--${i + 1} ${
+                loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+              }`}
+              onLoadingComplete={() => setLoading(false)}
             />
           </div>
         ))}
@@ -154,6 +170,10 @@ function TourDetails({ tour, reviews }) {
                     width={45}
                     src={review.user.photo}
                     alt={review.user.name}
+                    className={` ${
+                      loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+                    }`}
+                    onLoadingComplete={() => setLoading(false)}
                   />
                 </figure>
                 <h6 className='reviews__user'>{review.user.name}</h6>
@@ -182,13 +202,35 @@ function TourDetails({ tour, reviews }) {
               height={70}
               src='/imgs/logo-white.png'
               alt='logo'
+              className={` ${
+                loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+              }`}
+              onLoadingComplete={() => setLoading(false)}
             />
           </div>
           <figure className='cta__img cta__img--1'>
-            <Image width={150} height={150} src={tour?.images[1]} alt='Tour' />
+            <Image
+              className={` ${
+                loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+              }`}
+              onLoadingComplete={() => setLoading(false)}
+              width={150}
+              height={150}
+              src={tour?.images[1]}
+              alt='Tour'
+            />
           </figure>
           <figure className='cta__img cta__img--2'>
-            <Image width={150} height={150} src={tour?.images[2]} alt='Tour' />
+            <Image
+              className={` ${
+                loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+              }`}
+              onLoadingComplete={() => setLoading(false)}
+              width={150}
+              height={150}
+              src={tour?.images[2]}
+              alt='Tour'
+            />
           </figure>
           <div className='cta__content'>
             <h2 className='heading-secondary'>What are you waiting for?</h2>

@@ -2,9 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io';
 import { useSession } from 'next-auth/react';
+import { useState } from 'react';
 
 function Header() {
-  const { data } = useSession();
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(true);
+
+  console.log(session);
 
   // se = 'no';
   function logoutHandler() {}
@@ -14,9 +18,12 @@ function Header() {
         <Image
           width={400}
           height={400}
-          className='header__logo'
           src='/imgs/logo-white.png'
           alt='Natours logo'
+          className={`header__logo ${
+            loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+          }`}
+          onLoadingComplete={() => setLoading(false)}
         />
         {/* {se === 'no' ? null : (
           <form className='nav__search'>
@@ -31,7 +38,7 @@ function Header() {
           </form>
         )} */}
       </nav>
-      {data ? (
+      {session ? (
         <nav className='nav nav--user'>
           <button onClick={logoutHandler} className='nav__el nav__el--logout'>
             Log out
@@ -41,19 +48,23 @@ function Header() {
               <Image
                 width={500}
                 height={500}
-                src={user?.photo}
-                alt={user?.name}
+                src={session?.user?.image}
+                alt={session?.user?.name}
+                className={` ${
+                  loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+                }`}
+                onLoadingComplete={() => setLoading(false)}
               />
             </figure>
-            <span>{user?.name?.split(' ')[0]}</span>
+            <span>{session.user?.name?.split(' ')[0]}</span>
           </Link>
         </nav>
       ) : (
         <nav className='nav nav--user'>
-          <Link className='nav__el' href=''>
+          <Link className='nav__el' href='/login'>
             Log in
           </Link>
-          <Link className='nav__el nav__el--cta' href=''>
+          <Link className='nav__el nav__el--cta' href='/signup'>
             Sign up
           </Link>
         </nav>

@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+'use client';
+
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
+import { toast } from 'react-hot-toast';
 
 function Login() {
   const router = useRouter();
@@ -9,12 +12,12 @@ function Login() {
     password: '',
   });
   const { password, email } = formData;
-  function changeHandler(e) {
+  const changeHandler = useCallback((e) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-  }
+  }, []);
 
   const query = router.query; // login?redirect=/shipping
   const redirect = query.redirect ? query.redirect : '/';
@@ -29,7 +32,16 @@ function Login() {
       password,
     });
 
-    // if (res.ok) router.push(res.url);
+    console.log(res);
+
+    if (res?.ok) {
+      setIsLoading(false);
+      loginModal.onClose();
+      toast.success('logged in');
+      // router.push(redirect);
+    } else {
+      toast.error(res.error);
+    }
   }
 
   return (
