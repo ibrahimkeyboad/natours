@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 
 function Login() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,6 +26,7 @@ function Login() {
 
   async function loginHandler(e) {
     e.preventDefault();
+    setIsLoading(true);
 
     const res = await signIn('credentials', {
       redirect: false,
@@ -36,7 +38,6 @@ function Login() {
 
     if (res?.ok) {
       setIsLoading(false);
-      loginModal.onClose();
       toast.success('logged in');
       router.push(redirect);
     } else {
@@ -60,6 +61,7 @@ function Login() {
                 type='email'
                 placeholder='you@example.com'
                 required
+                disabled={isLoading}
                 name='email'
                 value={email}
                 onChange={changeHandler}
@@ -76,6 +78,7 @@ function Login() {
                 type='password'
                 placeholder='••••••••'
                 required
+                disabled={isLoading}
                 name='password'
                 value={password}
                 minLength='8'
@@ -83,7 +86,9 @@ function Login() {
               />
             </div>
             <div className='form__group'>
-              <button className='btn btn--green'>Login</button>
+              <button disabled={isLoading} className='btn btn--green'>
+                Login
+              </button>
             </div>
           </form>
         </div>
