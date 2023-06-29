@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
   await connetDB();
 
   const data = await Tour.findOne({ slug: params.slug });
-  const reviews = await Review.findById({ _id: data.id });
+  const reviews = await Review.find({ tour: data.id });
 
   return {
     props: {
