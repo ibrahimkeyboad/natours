@@ -18,6 +18,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  await connetDB();
+
   const data = await Tour.findOne({ slug: params.slug });
   const reviews = await Review.findById({ _id: data.id });
 

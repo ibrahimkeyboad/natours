@@ -112,6 +112,7 @@ function TourDetails({ tour, reviews }) {
                 <div key={guide.name} className='overview-box__detail'>
                   <figure className='overview-box__img'>
                     <Image
+                    priority
                       width={35}
                       height={35}
                       src={guide.photo}
@@ -161,11 +162,12 @@ function TourDetails({ tour, reviews }) {
       </section>
       <section className='section-reviews'>
         <div className='reviews'>
-          {tour?.reviews?.map((review) => (
+          {reviews?.map((review) => (
             <div key={review._id} className='reviews__card'>
               <div className='reviews__avatar'>
                 <figure className='reviews__avatar-img'>
                   <Image
+                  priority
                     height={45}
                     width={45}
                     src={review.user.photo}
@@ -198,6 +200,7 @@ function TourDetails({ tour, reviews }) {
         <div className='cta'>
           <div className='cta__img cta__img--logo'>
             <Image
+            priority
               width={300}
               height={70}
               src='/imgs/logo-white.png'
@@ -210,6 +213,7 @@ function TourDetails({ tour, reviews }) {
           </div>
           <figure className='cta__img cta__img--1'>
             <Image
+            priority
               className={` ${
                 loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
               }`}
@@ -222,6 +226,7 @@ function TourDetails({ tour, reviews }) {
           </figure>
           <figure className='cta__img cta__img--2'>
             <Image
+            priority
               className={` ${
                 loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
               }`}

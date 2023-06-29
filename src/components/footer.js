@@ -9,6 +9,7 @@ function Footer() {
     <footer className='footer'>
       <Link className='footer__logo' href='/'>
         <Image
+        priority
           height={30}
           width={150}
           src='https://res.cloudinary.com/ibracloud/image/upload/v1666853628/natours/img/logo-green_ona17j.png'

@@ -22,6 +22,7 @@ function Header() {
       <nav className='nav nav--tours'>
         <Link href='/'>
           <Image
+          priority
             width={400}
             height={400}
             src='/imgs/logo-white.png'
@@ -53,6 +54,7 @@ function Header() {
           <Link className='nav__el' href='/profile' passHref>
             <figure className='nav__user-img'>
               <Image
+              priority
                 width={500}
                 height={500}
                 src={session?.user?.image}
