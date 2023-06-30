@@ -15,8 +15,6 @@ function TourDetails({ tour, reviews }) {
     const response = axios.post('/api/stripe', JSON.stringify(body));
   }
 
-  console.log(reviews);
-
   return (
     <>
       <HeaderTour tour={tour} />
