@@ -28,8 +28,7 @@ function CallToAction({ tour }) {
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
             onLoadingComplete={() => setLoading(false)}
-            width={150}
-            height={150}
+            fill
             src={tour?.images[1]}
             alt='Tour'
           />
@@ -41,8 +40,7 @@ function CallToAction({ tour }) {
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
             onLoadingComplete={() => setLoading(false)}
-            width={150}
-            height={150}
+            fill
             src={tour?.images[2]}
             alt='Tour'
           />

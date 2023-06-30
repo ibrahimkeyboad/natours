@@ -9,14 +9,14 @@ function Pictures({ tour }) {
       {tour?.images?.map((img, i) => (
         <div key={img} className='picture-box'>
           <Image
-            priority
-            height={400}
-            width={400}
-            src={img}
-            alt={''}
             className={` picture-box__img picture-box__img--${i + 1} ${
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
+            src={img}
+            priority
+            width={800}
+            height={600}
+            alt={''}
             onLoadingComplete={() => setLoading(false)}
           />
         </div>
