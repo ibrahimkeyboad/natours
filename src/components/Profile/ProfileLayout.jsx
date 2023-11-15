@@ -1,11 +1,11 @@
 import React from 'react';
 import ProfileNav from './ProfileNav';
 
-function ProfileLayout({ children }) {
+function ProfileLayout({ children, role }) {
   return (
     <main className='main'>
       <div className='user-view'>
-        <ProfileNav />
+        <ProfileNav role={role} />
         {children}
       </div>
     </main>

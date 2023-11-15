@@ -1,8 +1,13 @@
 import ProfileLayout from '@/components/Profile/ProfileLayout';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]';
+import User from '@/models/userModel';
+import connectDB from '@/db';
+import Image from 'next/image';
 
-function ProfilePage() {
+function ProfilePage({ user }) {
   return (
-    <ProfileLayout>
+    <ProfileLayout role={user.role}>
       <div className='user-view__content'>
         <div className='user-view__form-container'>
           <h2 className='heading-secondary ma-bt-md'>Your account settings</h2>
@@ -11,16 +16,34 @@ function ProfilePage() {
               <label htmlFor='name' className='form__label'>
                 Name
               </label>
-              <input type='text' id='name' className='form__input' required />
+              <input
+                type='text'
+                value={user.name}
+                id='name'
+                className='form__input'
+                required
+              />
             </div>
             <div className='form__group ma-bt-md'>
               <label htmlFor='email' className='form__label'>
                 Email address
               </label>
-              <input type='text' id='email' className='form__input' required />
+              <input
+                type='text'
+                id='email'
+                value={user.email}
+                className='form__input'
+                required
+              />
             </div>
             <div className='form__group form__photo-upload'>
-              {/* <img src="" alt="" className="form__user-photo" /> */}
+              <Image
+                height={100}
+                width={100}
+                src={user.photo}
+                alt={user.name}
+                className='form__user-photo'
+              />
               <button className='btn-text'>Choose new photo</button>
             </div>
             <div className='form__group right'>
@@ -72,40 +95,26 @@ function ProfilePage() {
 
 export default ProfilePage;
 
-/*
+export async function getServerSideProps({ req, res }) {
+  connectDB();
+  const session = await getServerSession(req, res, authOptions);
 
-  
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
-    .user-view__content
-      .user-view__form-container
-        h2.heading-secondary.ma-bt-md Your account settings
-        form.form.form-user-data
-          .form__group
-            label.form__label(for='name') Name
-            input#name.form__input(type='text', value='Jonas Schmedtmann', required)
-          .form__group.ma-bt-md
-            label.form__label(for='email') Email address
-            input#email.form__input(type='email', value='admin@natours.io', required)
-          .form__group.form__photo-upload
-            img.form__user-photo(src='img/user.jpg', alt='User photo')
-            a.btn-text(href='') Choose new photo
-          .form__group.right
-            button.btn.btn--small.btn--green Save settings
-      .line &nbsp;
-      .user-view__form-container
-        h2.heading-secondary.ma-bt-md Password change
-        form.form.form-user-settings
-          .form__group
-            label.form__label(for='password-current') Current password
-            input#password-current.form__input(type='password', placeholder='••••••••', required, minlength='8')
-          .form__group
-            label.form__label(for='password') New password
-            input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
-          .form__group.ma-bt-lg
-            label.form__label(for='password-confirm') Confirm password
-            input#password-confirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
-          .form__group.right
-            button.btn.btn--small.btn--green Save password
+  const data = await User.findOne({ email: session.user.email });
 
+  const user = JSON.parse(JSON.stringify(data));
 
-            */
+  console.log(user);
+
+  return {
+    props: { user },
+  };
+}
