@@ -3,7 +3,6 @@ import HeadMeta from '@/components/headMeta';
 import connetDB from '@/db';
 import Review from '@/models/reviewModel';
 import Tour from '@/models/tourModel';
-import dynamic from 'next/dynamic';
 
 export async function getStaticPaths() {
   await connetDB();

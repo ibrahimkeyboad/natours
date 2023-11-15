@@ -12,13 +12,13 @@ function Reviwes({ reviews }) {
             <div className='reviews__avatar'>
               <figure className='reviews__avatar-img'>
                 <Image
-                  priority
-                  height={45}
-                  width={45}
+                  fill
                   src={review.user.photo}
                   alt={review.user.name}
-                  className={` ${
-                    loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
+                  className={`object-cover ${
+                    loading
+                      ? 'blur-2xl transition grayscale'
+                      : 'blur-0 grayscale-0'
                   }`}
                   onLoad={() => setLoading(false)}
                 />

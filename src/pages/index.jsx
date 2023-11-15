@@ -4,7 +4,7 @@ import Tour from '@/models/tourModel';
 
 export async function getStaticProps() {
   try {
-    await dbConnect();
+    dbConnect();
     const data = await Tour.find();
 
     const tours = JSON.parse(JSON.stringify(data));

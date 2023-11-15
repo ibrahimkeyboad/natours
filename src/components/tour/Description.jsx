@@ -57,9 +57,8 @@ function DescriptionTour({ tour }) {
               <div key={guide.name} className='overview-box__detail'>
                 <figure className='overview-box__img'>
                   <Image
+                    fill
                     priority
-                    width={35}
-                    height={35}
                     src={guide.photo}
                     alt='Lead guide'
                     className={` ${
