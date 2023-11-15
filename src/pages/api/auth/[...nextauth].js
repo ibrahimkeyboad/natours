@@ -21,7 +21,6 @@ export const authOptions = {
           email: credentials.email.trim().toLowerCase(),
         }).select('+password');
 
-        console.log(user);
 
         const isCorrectPassword = await user.correctPassword(
           credentials.password,

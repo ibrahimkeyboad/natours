@@ -34,8 +34,6 @@ function Login() {
       password,
     });
 
-    console.log(res);
-
     if (res?.ok) {
       setIsLoading(false);
       toast.success('logged in');

@@ -1,4 +1,3 @@
-import Header$ from '@/components/headMeta';
 import Main from '@/components/main';
 import dbConnect from '@/db';
 import Tour from '@/models/tourModel';
