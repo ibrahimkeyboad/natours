@@ -65,7 +65,7 @@ function DescriptionTour({ tour }) {
                     className={` ${
                       loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
                     }`}
-                    onLoadingComplete={() => setLoading(false)}
+                    onLoad={() => setLoading(false)}
                   />
                 </figure>
                 <span className='overview-box__label'>

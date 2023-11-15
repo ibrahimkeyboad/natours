@@ -1,5 +1,5 @@
 import React from 'react';
-import TourList from './tour-list';
+import TourList from './TourList.jsx';
 
 function Main({ tours }) {
   return (

@@ -17,7 +17,7 @@ function Pictures({ tour }) {
             width={800}
             height={600}
             alt={''}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
           />
         </div>
       ))}

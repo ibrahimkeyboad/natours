@@ -1,4 +1,4 @@
-import HeaderTour from './tour/Header';
+import HeaderTour from './tour/TourHeader';
 import DescriptionTour from './tour/Description';
 import Pictures from './tour/Pictures';
 import Reviwes from './tour/Reviwes';

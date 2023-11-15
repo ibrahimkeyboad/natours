@@ -1,8 +1,9 @@
-import Header$ from '@/components/_header';
-import TourDetails from '@/components/tour-detail';
+import TourDetails from '@/components/TourDetail';
+import HeadMeta from '@/components/headMeta';
 import connetDB from '@/db';
 import Review from '@/models/reviewModel';
 import Tour from '@/models/tourModel';
+import dynamic from 'next/dynamic';
 
 export async function getStaticPaths() {
   await connetDB();
@@ -36,7 +37,10 @@ export async function getStaticProps({ params }) {
 function TourPage({ tour, reviews }) {
   return (
     <>
-      <Header$ title={tour.name} description={tour.description} />
+      <HeadMeta
+        title={`Natours | ${tour.name}`}
+        description={tour.description}
+      />
       <TourDetails tour={tour} reviews={reviews} />
     </>
   );

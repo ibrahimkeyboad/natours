@@ -22,7 +22,7 @@ function Header() {
       <nav className='nav nav--tours'>
         <Link href='/'>
           <Image
-          priority
+            priority
             width={400}
             height={400}
             src='/imgs/logo-white.png'
@@ -30,7 +30,7 @@ function Header() {
             className={`header__logo ${
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
           />
         </Link>
         {/* {se === 'no' ? null : (
@@ -54,7 +54,7 @@ function Header() {
           <Link className='nav__el' href='/profile' passHref>
             <figure className='nav__user-img'>
               <Image
-              priority
+                priority
                 width={500}
                 height={500}
                 src={session?.user?.image}
@@ -62,7 +62,7 @@ function Header() {
                 className={` ${
                   loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
                 }`}
-                onLoadingComplete={() => setLoading(false)}
+                onLoad={() => setLoading(false)}
               />
             </figure>
             <span>{session.user?.name?.split(' ')[0]}</span>

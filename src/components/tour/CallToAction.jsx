@@ -18,7 +18,7 @@ function CallToAction({ tour }) {
             className={` ${
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
           />
         </div>
         <figure className='cta__img cta__img--1'>
@@ -27,7 +27,7 @@ function CallToAction({ tour }) {
             className={` ${
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
             fill
             src={tour?.images[1]}
             alt='Tour'
@@ -39,7 +39,7 @@ function CallToAction({ tour }) {
             className={` ${
               loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'
             }`}
-            onLoadingComplete={() => setLoading(false)}
+            onLoad={() => setLoading(false)}
             fill
             src={tour?.images[2]}
             alt='Tour'

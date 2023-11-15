@@ -1,4 +1,4 @@
-import Header$ from '@/components/_header';
+import Header$ from '@/components/headMeta';
 import Main from '@/components/main';
 import dbConnect from '@/db';
 import Tour from '@/models/tourModel';
@@ -39,7 +39,6 @@ function HomePage({ tours, errorMessage }) {
 
   return (
     <>
-      <Header$ />
       <Main tours={tours} />
     </>
   );

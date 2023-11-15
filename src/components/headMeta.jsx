@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-function Header$({ title, description }) {
+function headMeta({ title, description }) {
   return (
     <Head>
       <title>{title || 'Natours'}</title>
@@ -9,4 +9,4 @@ function Header$({ title, description }) {
   );
 }
 
-export default Header$;
+export default headMeta;

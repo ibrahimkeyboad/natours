@@ -15,7 +15,7 @@ function Footer() {
           src='https://res.cloudinary.com/ibracloud/image/upload/v1666853628/natours/img/logo-green_ona17j.png'
           alt='natour logo'
           className={`${loading ? 'blur-2xl grayscale' : 'blur-0 grayscale-0'}`}
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
         />
       </Link>
       <ul className='footer__nav'>
