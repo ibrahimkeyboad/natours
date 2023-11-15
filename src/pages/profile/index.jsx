@@ -30,40 +30,40 @@ function ProfilePage() {
             </div>
             <div className='line' />
           </form>
-          <div className='user-view__form-container'>
-            <h2 className='heading-secondary ma-bt-md'>Password change</h2>
-            <form className='form form-user-settings'>
-              <div className='form__group'>
-                <label htmlFor='current-password' className='form__label'>
-                  Current password
-                </label>
-                <input
-                  type='password'
-                  id='current-password'
-                  className='form__input'
-                  placeholder='••••••••'
-                  required
-                />
-              </div>
-              <div className='form__group ma-bt-lg'>
-                <label htmlFor='password' className='form__label'>
-                  Current password
-                </label>
-                <input
-                  type='password'
-                  id='password'
-                  className='form__input'
-                  placeholder='••••••••'
-                  required
-                />
-              </div>
-              <div className='form__group right'>
-                <button className='btn btn--small btn--green'>
-                  Save password
-                </button>
-              </div>
-            </form>
-          </div>
+        </div>
+        <div className='user-view__form-container'>
+          <h2 className='heading-secondary ma-bt-md'>Password change</h2>
+          <form className='form form-user-settings'>
+            <div className='form__group'>
+              <label htmlFor='current-password' className='form__label'>
+                Current password
+              </label>
+              <input
+                type='password'
+                id='current-password'
+                className='form__input'
+                placeholder='••••••••'
+                required
+              />
+            </div>
+            <div className='form__group ma-bt-lg'>
+              <label htmlFor='password' className='form__label'>
+                Current password
+              </label>
+              <input
+                type='password'
+                id='password'
+                className='form__input'
+                placeholder='••••••••'
+                required
+              />
+            </div>
+            <div className='form__group right'>
+              <button className='btn btn--small btn--green'>
+                Save password
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </ProfileLayout>
